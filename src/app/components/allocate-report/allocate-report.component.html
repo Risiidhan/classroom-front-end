@@ -1,0 +1,79 @@
+<div class="container">
+    <h2 class="px-2 mt-4">Student Detail Report</h2>
+
+    <form #repot="ngForm">
+        <div class="container">
+        <div class="mb-3 row border border-3 py-3">
+        <h5 class="py-3 px-2">Student Details</h5>
+        <div class="row px-5">
+            <div class="col-6 flexB">
+                <label  class="col-sm-2 col-form-label">Student</label>
+                <select (change)="onSelectClass(std.value)" #std class="form-select" aria-label="Default select example">
+                    <option value="" disabled selected>- Please Select -</option>
+                    <option *ngFor="let stud of students" [value]="stud._id">{{stud.firstName}} {{stud.lastName}}</option>
+                </select>
+            </div>
+            <div class="col-6">
+                <div class="flexB">
+                    <label  class="col-sm-2 col-form-label">Classroom</label>
+                    <input *ngIf="selectStudent?.classroomDetails?.classroomName == ''" [(ngModel)]="selectStudent.classroomDetails.classroomName" name="classroom" disabled type="text" class="form-control" id="contactNo">
+                    <input *ngIf="selectStudent?.classroomDetails?.classroomName" [(ngModel)]="selectStudent.classroomDetails.classroomName" name="classroom" disabled type="text" class="form-control" id="contactNo">
+
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="row px-5 py-3">
+            <div class="col-6 flexB">
+                <label  class="col-sm-2 col-form-label">C.Person</label>
+                <input [(ngModel)]="selectStudent.contactPerson" name="contactPerson" disabled class="form-control" id="contactNo">
+            </div>
+            <div class="col-6">
+                <div class="flexB">
+                    <label  class="col-sm-2 col-form-label">Email</label>
+                    <input [(ngModel)]="selectStudent.email" name="email" disabled  class="form-control" id="contactNo">
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="row px-5">
+            <div class="col-6 flexB">
+                <label  class="col-sm-2 col-form-label">Contact</label>
+                <input [(ngModel)]="selectStudent.contactNo" name="contactNo" disabled class="form-control" id="contactNo">
+            </div>
+            <div class="col-6">
+                <div class="flexB">
+                    <label  class="col-sm-2 col-form-label">DOB</label>
+                    <input disabled class="form-control" [(ngModel)]="selectStudent.dob" name="dob">
+                </div>
+            </div>
+            
+        </div>
+
+        </div>
+
+        <div class="mb-3 row border border-3 py-3">
+            <h5 class="py-3 px-2">Teachers and Subject Details</h5>
+
+          <div class="container px-5 py-3">
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                  <tr>
+                    <th class="col" scope="col">Subjects</th>
+                    <th scope="col">Teacher</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let sub of allocatedSubjects">
+                  <tr>
+                    <td scope="row">{{sub.subjectDetails.subjectName}}</td>
+                    <td>{{sub.teacherDetails.firstName}} {{sub.teacherDetails.lastName}}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+            </div>
+        </div>
+    </form>
+</div>

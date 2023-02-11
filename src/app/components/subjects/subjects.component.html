@@ -1,0 +1,51 @@
+<div class="container">
+    <h2 class="px-2 mt-4">Subject</h2>
+
+    <form #addSubjectForm="ngForm" (ngSubmit)="addSubject(addSubjectForm.value)">
+        
+
+        <div class="container">
+
+    <h5 class="py-3">Add and Edit Subject</h5>
+          <div class=" border border-3 py-3 px-3">
+              <div class="mb-3 row">
+                <label  class="col-sm-2 col-form-label">Subject Name</label>
+                <div class="col-sm-10">
+                  <input [(ngModel)]="subjectToUpdate.subjectName" ngModel #subject="ngModel" name="subject"  type="" class="form-control"  required>
+                  <p *ngIf="(!subject.untouched || addSubjectForm.submitted)&& subject.errors?.required" class="text-danger">Please Enter the subject</p>
+                </div>
+            </div>
+            <button [disabled]="!addSubjectForm.form.valid" type="submit" class="btn btn-success">Insert</button>
+            <label  class="px-2"></label>
+            <button [disabled]="!addSubjectForm.form.valid" (click)="updateSubject(addSubjectForm.value)" type="button" class="btn btn-warning">Update</button>
+        
+        </div>
+        </div>
+    </form>
+
+    <div class="container py-3">
+
+        <table class="table table-bordered ">
+            <thead class="table-dark">
+              <tr>
+                <th class="col-md-10" scope="col">Subject Name</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+    
+              </tr>
+            </thead>
+            <tbody *ngFor="let sub of subjects">
+              <tr>
+                <td scope="row">{{sub.subjectName}}</td>
+                <td>
+                    <button type="button" (click)="editSubject(sub._id)" class="mt-2 btn btn-warning">Edit</button>
+                </td>
+                <td>
+                    <button type="button" (click)="deleteSubject(sub._id)" class="mt-2 btn btn-danger">x</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+   
+</div>

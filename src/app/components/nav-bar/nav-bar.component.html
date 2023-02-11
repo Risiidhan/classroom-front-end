@@ -1,0 +1,39 @@
+<!-- <nav class="navbar navbar-expand-lg text-light">
+    <div class="container-fluid">
+      <div class=" text-light collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a routerLinkActive="active" [routerLinkActiveOptions]={exact:true} class="nav-bran" aria-current="page" routerLink="/home">Home</a>
+          <a routerLinkActive="active" class="nav-link" routerLink="/student">Students</a>
+          <a routerLinkActive="active" class="nav-link" routerLink="/teacher">Teachers</a>
+          <a routerLinkActive="active" class="nav-link" routerLink="/classroom">ClassRoom</a>
+          <a routerLinkActive="active" class="nav-link" routerLink="/subjects">Subjects</a>
+          <a routerLinkActive="active" class="nav-link" routerLink="/allocate-classroom">Allocate-Classroom</a>
+          <a routerLinkActive="active" class="nav-link" routerLink="/allocate-subjects">Allocate-Subjects</a>
+          <a routerLinkActive="active" class="nav-link" routerLink="/reports">Report</a>
+
+        </div>
+      </div>
+    </div>
+  </nav> -->
+  
+  <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand text-light px-2" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+       data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+       aria-expanded="false" aria-label="Toggle navigation"
+       (click)="toggleCollapsed()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbarSupportedContent" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+      <a (click)="toggleCollapsed()" routerLinkActive="active"  class="nav-link  text-light px-2" routerLink="/student">Students</a>
+      <a (click)="toggleCollapsed()" routerLinkActive="active" class="nav-link  text-light px-2" routerLink="/teacher">Teachers</a>
+      <a (click)="toggleCollapsed()" routerLinkActive="active" class="nav-link  text-light px-2" routerLink="/classroom">ClassRoom</a>
+      <a (click)="toggleCollapsed()" routerLinkActive="active" class="nav-link  text-light px-2" routerLink="/subjects">Subjects</a>
+      <a (click)="toggleCollapsed()" routerLinkActive="active" class="nav-link  text-light px-2" routerLink="/allocate-classroom">Allocate-Classroom</a>
+      <a (click)="toggleCollapsed()" routerLinkActive="active" class="nav-link  text-light px-2" routerLink="/allocate-subjects">Allocate-Subjects</a>
+      <a (click)="toggleCollapsed()" routerLinkActive="active" class="nav-link  text-light px-2" routerLink="/reports">Report</a>
+    </div>
+  </nav>
+
+  <!-- ''''''''''''''''''''''''''''''''''' -->
+  

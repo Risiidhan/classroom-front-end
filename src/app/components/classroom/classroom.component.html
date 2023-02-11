@@ -1,0 +1,52 @@
+<div class="container">
+    <h2 class="px-2 mt-4">Classroom</h2>
+
+    <form #addClassForm="ngForm" (ngSubmit)="addClass(addClassForm)">
+        
+
+        <div class="container">
+
+    <h5 class="py-3">Add and Edit Classroom</h5>
+          <div class=" border border-3 py-3 px-3">
+              <div class="mb-3 row">
+                <label  class="col-sm-2 col-form-label">Classroom Name</label>
+                <div class="col-sm-10">
+                  <input [(ngModel)]="classroomToUpdate.classroomName" ngModel #Classroom="ngModel" name="Classroom"  type="" class="form-control"  required>
+                  <p *ngIf="(!Classroom.untouched || addClassForm.submitted)&& Classroom.errors?.required" class="text-danger">Please Enter the Classroom</p>
+                </div>
+            </div>
+            <button [disabled]="!addClassForm.form.valid" type="submit" class="btn btn-success">Insert</button>
+            <label  class="px-2"></label>
+            <button [disabled]="!addClassForm.form.valid" (click)="updateClassroom(addClassForm.value)" type="button" class="btn btn-warning">Update</button>
+        
+        </div>
+        </div>
+    </form>
+
+    <div class="container py-3">
+
+    <table class="table table-bordered ">
+        <thead  class="table-dark">
+          <tr>
+            <th class="col-md-10" scope="col">Classroom Name</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+
+          </tr>
+        </thead>
+        <tbody *ngFor="let class of classroom">
+          <tr>
+            <td scope="row">{{class.classroomName}}</td>
+            <td>
+                <button type="button" (click)="editClassroom(class._id)" class="mt-2 btn btn-warning">Edit</button>
+            </td>
+            <td>
+                <button type="button" (click)="deleteClassroom(class._id)" class="mt-2 btn btn-danger">x</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+   
+</div>

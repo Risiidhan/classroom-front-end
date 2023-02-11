@@ -1,0 +1,116 @@
+<div class="container">
+    <h2 class="px-2 mt-4">Students</h2>
+
+    <form  #addStudentForm="ngForm" (ngSubmit)="addStudent(addStudentForm.value)">
+        
+
+        <div class="container">
+    <h5 class="py-3">Add and Edit Students</h5>
+          <div class="containe-fluild border border-3 py-3 px-3">
+
+            <div class="mb-3 row">
+                <label  class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                  <input  [(ngModel)]="stdToUpdate.firstName" #firstname="ngModel" name="firstname"  type="" class="form-control"  required>
+                  <p *ngIf="(!firstname.untouched || addStudentForm.submitted)&& firstname.errors?.required" class="text-danger">Please Enter the firstname</p>
+                </div>
+
+              </div>
+    
+              <div class="mb-3 row">
+                <label  class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                  <input required  [(ngModel)]="stdToUpdate.lastName" #lastname="ngModel" name="lastname"  type="text" class="form-control" id="lName">
+                <p *ngIf="(!lastname.untouched || addStudentForm.submitted)&& lastname.errors?.required" class="text-danger">Please Enter the lastname</p>
+                  
+                </div>
+              </div>
+    
+              <div class="mb-3 row">
+                <label  class="col-sm-2 col-form-label">Contact Person</label>
+                <div class="col-sm-10">
+                  <input required  [(ngModel)]="stdToUpdate.contactPerson" #contactPerson="ngModel" name="contactPerson" type="text" class="form-control" id="contactPerson">
+                  <p *ngIf="(!contactPerson.untouched || addStudentForm.submitted)&& contactPerson.errors?.required" class="text-danger">Please Enter the contactPerson</p>
+                
+                </div>
+              </div>
+    
+              <div class="mb-3 row">
+                <label  class="col-sm-2 col-form-label">Contact No</label>
+                <div class="col-sm-10">
+                  <input required  [(ngModel)]="stdToUpdate.contactNo" #contactNo="ngModel" name="contactNo" type="number" class="form-control" id="contactNo">
+                  <p *ngIf="(!contactNo.untouched || addStudentForm.submitted)&& contactNo.errors?.required" class="text-danger">Please Enter the contact No</p>
+                  
+                </div>
+              </div>
+    
+            <div class="mb-3 row">
+                <label  class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                  <input required  [(ngModel)]="stdToUpdate.email" #email="ngModel" name="email" required type="email" class="form-control" id="email">
+                  <p *ngIf="(email.touched || addStudentForm.submitted)&& email.errors?.required" class="text-danger">Please Enter the email</p>
+
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">DOB</label>
+                <div class="col-sm-10">
+                  <input (change)="onChange(dob)" required  [(ngModel)]="stdToUpdate.dob" #dob="ngModel" name="dob" type="date" class="form-control" id="dob">
+                  <p *ngIf="(dob.touched || addStudentForm.submitted)&& dob.errors?.required" class="text-danger">Please Enter the dob</p>
+                
+                </div>
+              </div>
+    
+              <div class="mb-3 row">
+                <label  class="col-sm-2 col-form-label">Age</label>
+                <div class="col-sm-10">
+                  <input  [(ngModel)]="stdToUpdate.age" #age="ngModel" id="age" name="age" type="number" class="form-control">
+                </div>
+              </div>
+    
+              <div class="mb-3 row">
+                <label  class="col-sm-2 col-form-label">Classroom</label>
+                <div class="col-sm-10">
+                  <select (change)="onSelect(val.value)" #val *ngIf="stdToUpdate?.classroomDetails?.classroomName"  [(ngModel)]="stdToUpdate.classroomDetails.classroomName" #classroom="ngModel" name="classroom" class="form-select" aria-label="Default select example">
+                    <option value="" disabled selected>- Please Select -</option>  
+                    <option *ngFor="let class of classroomNames" [value]="class._id" >{{class.classroomName}}</option>  
+                </select>
+                </div>
+              </div>
+
+              <button [disabled]="!addStudentForm.form.valid" type="submit" class="btn btn-success">Insert</button>
+              <label  class="px-2"></label>
+              <button [disabled]="!addStudentForm.form.valid" (click)="updateStudent(addStudentForm.value)" type="button" class="btn btn-warning">Update</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="container py-3">
+
+      <table class="table table-bordered ">
+          <thead class="table-dark">
+            <tr>
+              <th class="col" scope="col">Student Name</th>
+              <th class="col" scope="col">Classroom</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+  
+            </tr>
+          </thead>
+          <tbody *ngFor="let std of students">
+            <tr>
+              <td scope="row">{{std.firstName}} {{std.lastName}}</td>
+              <td scope="row">{{std.classroomDetails.classroomName}}</td>
+
+              <td>
+                  <button type="button" (click)="editStudent(std._id)" class="mt-2 btn btn-warning">Edit</button>
+              </td>
+              <td>
+                  <button type="button" (click)="deleteClassroom(std._id)" class="mt-2 btn btn-danger">x</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+   
+</div>

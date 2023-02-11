@@ -1,0 +1,53 @@
+<div class="container">
+    <h2 class="px-2 mt-4">Allocate Subjects</h2>
+
+    <form action="">
+        
+
+        <div class="container">
+        <div class="mb-3 row border border-3 py-3">
+        <h5 class="py-3 px-2">Teacher Details</h5>
+        <div class="flexB">
+            <label  class="col-sm-2 col-form-label">Teacher</label>
+            <select (change)="onSelect(val.value)" #val  class="form-select" aria-label="Default select example">
+              <option value="" disabled selected>- Please Select -</option>
+              <option *ngFor="let teacher of teachers" [value]="teacher._id" >{{teacher.firstName}} {{teacher.lastName}}</option>
+            </select>
+            <button type="button" class="mt-2 btn btn-primary">Save</button>
+        </div>
+        </div>
+
+        <div class="mb-3 row border border-3 py-3">
+            <h5 class="py-3 px-2">Allocate Subject</h5>
+            <div class="flexB">
+                <label  class="col-sm-2 col-form-label">Subject</label>
+                <select (change)="onSelectSub(sVal.value)" #sVal class="form-select" aria-label="Default select example">
+                  <option value="" disabled selected>- Please Select -</option>
+                  <option [value]="subject._id" *ngFor="let subject of subjects" >{{subject.subjectName}}</option>
+                </select>
+                <button type="button" (click)="allocateSubject()" class="mt-2 btn btn-primary">Allocate</button>
+            </div>
+       
+
+          <div class="container px-5 py-3">
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                  <tr>
+                    <th class="col-md-10" scope="col">Subjects</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let sub of allocatedSubjects">
+                  <tr>
+                    <td scope="row">{{sub.subjectDetails.subjectName}}</td>
+                    <td>
+                        <button (click)="deleteAllocatedSubject(sub._id)" type="button" class="mt-2 btn btn-danger">Deallocate</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,17 @@
+.active{
+    color: rgb(108, 145, 163)!important;
+    font-weight: bold;
+}
+
+.nav-link:hover{
+    color: rgb(71, 125, 150)!important;
+}
+
+
+.navbar-inner {
+    background:transparent;
+}
+
+#navbarSupportedContent{
+    left: 1;
+}

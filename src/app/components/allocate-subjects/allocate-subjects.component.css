@@ -1,0 +1,16 @@
+.flexB{
+    display: flex;
+}
+.form-select{
+    width: 30%;
+    margin-right: 10px;
+    height: 90%;
+    margin-top: 5px;
+}
+
+label{
+    padding-left: 100px;
+    margin-top: 5px;
+
+}
+

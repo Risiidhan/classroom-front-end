@@ -1,0 +1,42 @@
+body {
+    height: 100vh;
+    background-image: url("../../../assets/bg.jpg");
+    background-repeat: no-repeat;
+    object-fit: cover;
+    opacity: 0.8;
+    filter: brightness(50%);
+    position: relative;
+    text-align: center;
+    background-size: cover;
+}
+
+/*  */
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 10vw;
+
+  }
+
+
+  .image{
+    position: absolute;
+    top: 180%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25vw;
+  }
+
+  span{
+    position: absolute;
+    top: 0%;
+    bottom: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 4vw;
+  }
