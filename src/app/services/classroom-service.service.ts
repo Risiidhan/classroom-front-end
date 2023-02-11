@@ -10,6 +10,7 @@ export class ClassroomServiceService {
 
   addClassroom(classroom:any){
     return this.webService.post('classroom',classroom)
+
   }
 
   getClassroom(){
@@ -27,4 +28,5 @@ export class ClassroomServiceService {
   updateClassroom(id:any, body:any){
     return this.webService.patch('classroom',body,id)
   }
+  
 }

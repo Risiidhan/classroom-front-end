@@ -31,7 +31,9 @@ export class ClassroomComponent implements OnInit {
           alert(`inserted ${classroomName} successfully`)
           this.getClassroom();   
           form.subject='';
-      })
+      },
+      error => (console.log(error))
+      )
   }
 
 

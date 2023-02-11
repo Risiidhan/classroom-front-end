@@ -131,9 +131,10 @@ export class StudentsComponent implements OnInit {
 
   deleteClassroom(id:any){
     this.stdService.deleteStudent(id)
-      .subscribe((data:any)=>{console.log(data);})
+      .subscribe((data:any)=>{console.log(data)
+        this.getStudents();
+      })
       alert('Deleted Successfully!')
-      this.getStudents();
   }
 
   getSubByID(){
