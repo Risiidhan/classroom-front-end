@@ -1,5 +1,5 @@
 
-# Classroom Server:
+# Classroom Frontend:
 
 ## Description:
 
