@@ -1,27 +1,22 @@
-# ClassRoomApplication
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
+# Classroom Server:
 
-## Development server
+## Description:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Classroom Server is a robust MERN stack application following the MVC architecture, designed to streamline classroom management with features for assignments, grades, attendance, and communication.
 
-## Code scaffolding
+## Features:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- MEAN Stack: Utilizes MongoDB, Express.js, Angular, and Node.js for a full-stack solution.
+- MVC Architecture: Organized codebase following the Model-View-Controller pattern for scalability and maintainability.
+- Classroom Management: Seamlessly manage assignments, grades, attendance, and communication within a classroom setting.
+- RESTful API: Exposes RESTful endpoints for easy integration with front-end applications.
+- Real-time Communication: Implement real-time communication features for enhanced collaboration between students and instructors.
+- Scalable and Extensible: Designed with scalability and extensibility in mind to accommodate future growth and enhancements.
 
-## Build
+## Installation:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Clone the repository.
+- Install dependencies using npm install.
+- Set up environment variables.
+- Run the server using npm start.
